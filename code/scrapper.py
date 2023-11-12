@@ -2,16 +2,20 @@ import os
 from bs4 import BeautifulSoup
 import requests
 import json 
+import re
 
 
 class Scrapper():
   def __init__(self, base: str, limit: int = None, cache_file: str = None) -> None:
     '''
     Class to scrape search results from Google
+
+    Also caches results to a json file
     '''
     self.base = base
     self.limit = limit
 
+    # set up cache 
     if cache_file != None:
       if os.path.isfile(cache_file):
         with open(cache_file) as f: 
@@ -58,6 +62,7 @@ class Scrapper():
 
   def process_response(self, raw_text: str):
     soup = BeautifulSoup(raw_text, "html.parser")
+
     links = soup.find_all("a")
     headings = soup.find_all("h3")
 
@@ -65,17 +70,33 @@ class Scrapper():
       for info in headings:
         get_title = info.getText()
         link_href = link.get('href')
-        if "url?q=" in link_href and not "webcache" in link_href:
+        if "url?q=" in link_href and not "webcache" in link_href and not 'accounts.google' in link_href and not 'support.google' in link_href:
+          result_url = link.get('href').split("?q=")[1].split("&sa=U")[0]
+          result_content = self.get_search_result_content(result_url)
+          text = self.process_search_result_content(result_content)
           print(get_title)
-          print(link.get('href').split("?q=")[1].split("&sa=U")[0])
-          print("------")
-      
+          print(link)
+          print(text)
+          print("---------")
 
+
+  def get_search_result_content(self, url: str) -> str | None:
+    response = requests.get(url)
+    if response != None: 
+      return response.text 
+    return None
+
+  def process_search_result_content(self, content: str) -> list[str]:
+    response_text = []
+    soup = BeautifulSoup(content, 'html.parser')
+    paragraphs = soup.find_all('p')
+    [response_text.append(paragraph) for paragraph in paragraphs]
+    return response_text
 
 def main():
-  query = "StackOverflow"
+  query = "apple pie recipe"
   base = 'https://google.com/search?'
-  scrapper = Scrapper(base, limit = 10, cache_file = 'files/cache.json')
+  scrapper = Scrapper(base, limit = 20, cache_file = 'files/cache.json')
   scrapper.query(query) 
 
 
