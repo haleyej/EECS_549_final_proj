@@ -101,7 +101,6 @@ class Scrapper():
       self.add_to_cache(query, raw_text)
     
     search_results = self.process_response(raw_text)
-    print(search_results)
 
     if save_path != None:
       self.save_search_content(save_path, original_query, search_results)
