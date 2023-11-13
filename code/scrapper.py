@@ -2,6 +2,7 @@ import os
 from bs4 import BeautifulSoup
 import requests
 import json 
+import csv
 
 class Scrapper():
   def __init__(self, base: str, limit: int = None, cache_file: str = None) -> None:
@@ -73,7 +74,7 @@ class Scrapper():
       json.dump(self.cache, f)
 
 
-  def query(self, query: str):
+  def query(self, query: str, save_path: str = None) -> dict[str]:
     '''
     Takes in a query, prepares a URL for search 
 
@@ -87,7 +88,9 @@ class Scrapper():
 
     ARGS:
       query: what's being searched for, in natural language format
+      save_path: file to save results to, defaults to None
     '''
+    original_query = query[:]
     query = self.prepare_query(query) 
     url = self.prepare_url(query)
 
@@ -97,11 +100,16 @@ class Scrapper():
       raw_text = requests.get(url).text
       self.add_to_cache(query, raw_text)
     
-    processed_response = self.process_response(raw_text)
-    return processed_response
+    search_results = self.process_response(raw_text)
+    print(search_results)
+
+    if save_path != None:
+      self.save_search_content(save_path, original_query, search_results)
+
+    return search_results
     
 
-  def process_response(self, raw_text: str):
+  def process_response(self, raw_text: str) -> dict[str]:
     '''
     Processes search engine results 
 
@@ -112,14 +120,17 @@ class Scrapper():
     '''
     soup = BeautifulSoup(raw_text, "html.parser")
 
+    results_to_content = {}
     links = soup.find_all("a")
     for link in links[25:40]:
       link_href = link.get('href')
       if "url?q=" in link_href and not "webcache" in link_href and not 'accounts.google' in link_href and not 'support.google' in link_href:
         result_url = link.get('href').split("?q=")[1].split("&sa=U")[0]
-        print(result_url)
         result_content = self.get_search_result_content(result_url)
         page_content = self.process_search_result_content(result_content)
+        results_to_content[result_url] = page_content
+    
+    return results_to_content
 
 
   def get_search_result_content(self, url: str) -> str | None:
@@ -179,16 +190,31 @@ class Scrapper():
           elif elem.name == 'p':
             paragraph_text = elem.get_text()
             paragraph_text = paragraph_text.strip()
-            page_content.append(paragraph_text)
+            if len(paragraph_text) > 0:
+              page_content.append(paragraph_text)
 
     return " ".join(page_content)
+
+  def save_search_content(self, save_path: str, query: str, search_results: dict[str]) -> None:
+    '''
+    Saves processed search results to csv 
+
+    Does not return anything 
+
+    ARGS:
+      save_path: name of file to save results to 
+    '''
+    with open(save_path, 'w') as f: 
+      writer = csv.writer(f)
+      for url, page_content in list(search_results.items()):
+        writer.writerow([query, url, page_content])
 
 
 def main():
   query = "apple pie recipe"
   base = 'https://google.com/search?'
   scrapper = Scrapper(base, limit = 20, cache_file = 'files/cache.json')
-  scrapper.query(query) 
+  scrapper.query(query, save_path = 'files/processed_search_results/results.csv') 
 
 
 if __name__ == '__main__':
