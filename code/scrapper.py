@@ -123,7 +123,7 @@ class Scrapper():
     links = soup.find_all("a")
     for link in links[25:40]:
       link_href = link.get('href')
-      if "url?q=" in link_href and not "webcache" in link_href and not 'accounts.google' in link_href and not 'support.google' in link_href:
+      if "url?q=" in link_href and not "webcache" in link_href and not 'accounts.google' in link_href and not 'support.google' in link_href and not 'www.reddit.come/r/AskReddit' in link_href:
         result_url = link.get('href').split("?q=")[1].split("&sa=U")[0]
         result_content = self.get_search_result_content(result_url)
         page_content = self.process_search_result_content(result_content)
@@ -203,7 +203,7 @@ class Scrapper():
     ARGS:
       save_path: name of file to save results to 
     '''
-    with open(save_path, 'w') as f: 
+    with open(save_path, 'a') as f: 
       writer = csv.writer(f)
       for url, page_content in list(search_results.items()):
         writer.writerow([query, url, page_content])

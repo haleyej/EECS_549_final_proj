@@ -12,7 +12,7 @@ def load_queries(queries_path: str) -> list[str]:
 
     return queries
 
-def run_scrapper(base: str , queries: str, cache_file: str, save_path: str):
+def run_scrapper(base: str , queries: str, cache_file: str, save_path: str) -> None:
     scrapper = Scrapper(base, cache_file = cache_file)
 
     for query in queries: 
@@ -21,7 +21,7 @@ def run_scrapper(base: str , queries: str, cache_file: str, save_path: str):
 def main():
     base = 'https://google.com/search?'
     queries = load_queries("eval/evaluation_queries.csv")
-    run_scrapper(base, queries, cache_file = 'files/cache.json', save_path = 'files/processed_search_results/search.csv')
+    run_scrapper(base, queries[20:25], cache_file = 'files/cache.json', save_path = 'files/processed_search_results/results.csv')
 
 if __name__ == '__main__':
     main()
