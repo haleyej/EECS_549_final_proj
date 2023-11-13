@@ -113,12 +113,13 @@ class Scrapper():
     soup = BeautifulSoup(raw_text, "html.parser")
 
     links = soup.find_all("a")
-    for link in links:
+    for link in links[25:40]:
       link_href = link.get('href')
       if "url?q=" in link_href and not "webcache" in link_href and not 'accounts.google' in link_href and not 'support.google' in link_href:
         result_url = link.get('href').split("?q=")[1].split("&sa=U")[0]
+        print(result_url)
         result_content = self.get_search_result_content(result_url)
-        text, headings = self.process_search_result_content(result_content)
+        page_content = self.process_search_result_content(result_content)
 
 
   def get_search_result_content(self, url: str) -> str | None:
@@ -136,55 +137,51 @@ class Scrapper():
     
     response = requests.get(url)
     if response != None: 
+      self.add_to_cache(url, response.text)
       return response.text 
-    return None
+    else:
+      return None
 
 
-  def process_search_result_content(self, content: str) -> tuple[list[str], list[str]]:
+  def process_search_result_content(self, content: str) -> str:
     '''
     Process the response text from a google search result 
 
-    Returns a list that roughly reconstructs the content of the page 
+    Returns a string that roughly reconstructs the content 
+    of the page
     
     Only collects headings & paragraphs for simplicity sake
 
     ARGS:
       content = response text from search result 
     '''
-    response_text = []
     soup = BeautifulSoup(content, 'html.parser')
 
-    all_headings = []
-
+    page_content = []
     headings_blocked_text = ['Sorry, you have been blocked', 'Why have I been blocked?', 'What can I do to resolve this?']
+
     for h in ['h1', 'h2', 'h3']:
+      # get all paragraphs of a certain level 
       headings = soup.find_all(h)
+      if headings == None: 
+        continue
       for heading in headings: 
+        # get heading text 
         heading_text = heading.get_text()
         if heading_text in headings_blocked_text or 'You are unable to access' in heading_text: 
           continue
         heading_text = heading_text.strip()
-        print(heading_text)
-        all_headings.append(heading_text)
-        paragraphs = heading.findNext('p')
-        if paragraphs == None: 
-          continue 
-        for paragraph in paragraphs:
-          print(paragraph.get_text())
+        page_content.append(heading_text)
+        # get all content after heading
+        for elem in heading.next_siblings: 
+          if elem.name and elem.name.startswith('h'):
+            break
+          elif elem.name == 'p':
+            paragraph_text = elem.get_text()
+            paragraph_text = paragraph_text.strip()
+            page_content.append(paragraph_text)
 
-    # paragraphs = soup.body.find_all('p')
-
-    # response_text = []
-    # for paragraph in paragraphs: 
-    #   text = paragraph.get_text()
-    #   # common anti-scrapping text
-    #   if 'This website is using a security service' in text:
-    #     break 
-    #   elif 'Sorry, you have been blocked' in text:
-    #     break 
-    #   response_text.append(text)
-
-    return (response_text, all_headings)
+    return " ".join(page_content)
 
 
 def main():
