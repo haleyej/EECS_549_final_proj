@@ -192,7 +192,10 @@ class Scrapper():
             if len(paragraph_text) > 0:
               page_content.append(paragraph_text)
 
-    return " ".join(page_content)
+    if len(page_content) > 0:
+      return " ".join(page_content)
+    else:
+      return None
 
   def save_search_content(self, save_path: str, query: str, search_results: dict[str]) -> None:
     '''
@@ -206,6 +209,8 @@ class Scrapper():
     with open(save_path, 'a') as f: 
       writer = csv.writer(f)
       for url, page_content in list(search_results.items()):
+        if page_content == None:
+          continue
         writer.writerow([query, url, page_content])
 
 
