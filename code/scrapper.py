@@ -97,8 +97,11 @@ class Scrapper():
     if url in self.cached_urls:
       raw_text = self.cache[url]
     else: 
-      raw_text = requests.get(url).text
-      self.add_to_cache(query, raw_text)
+      try:
+        raw_text = requests.get(url).text
+        self.add_to_cache(query, raw_text)
+      except:
+        return None
     
     search_results = self.process_response(raw_text)
 
@@ -123,11 +126,12 @@ class Scrapper():
     links = soup.find_all("a")
     for link in links[25:40]:
       link_href = link.get('href')
-      if "url?q=" in link_href and not "webcache" in link_href and not 'accounts.google' in link_href and not 'support.google' in link_href and not 'www.reddit.come/r/AskReddit' in link_href:
+      if "url?q=" in link_href and not "webcache" in link_href and not 'accounts.google' in link_href and not 'support.google' in link_href and not 'www.reddit.com/r/AskReddit' in link_href:
         result_url = link.get('href').split("?q=")[1].split("&sa=U")[0]
         result_content = self.get_search_result_content(result_url)
-        page_content = self.process_search_result_content(result_content)
-        results_to_content[result_url] = page_content
+        if result_content != None:
+          page_content = self.process_search_result_content(result_content)
+          results_to_content[result_url] = page_content
     
     return results_to_content
 
@@ -145,8 +149,11 @@ class Scrapper():
     if url in self.cached_urls:
       return self.cache[url]
     
-    response = requests.get(url)
-    if response != None: 
+    try: 
+      response = requests.get(url)
+    except:
+      return None
+    if response.text != None: 
       self.add_to_cache(url, response.text)
       return response.text 
     else:
