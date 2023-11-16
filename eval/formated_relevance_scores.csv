@@ -1,0 +1,779 @@
+,query,rel,docid
+0,What's the most memorable birthday surprise you've ever gotten?,5,65901
+1,What's the most memorable birthday surprise you've ever gotten?,5,64259
+2,What's the most memorable birthday surprise you've ever gotten?,5,38992
+3,What's the most memorable birthday surprise you've ever gotten?,3,14986
+4,What's the most memorable birthday surprise you've ever gotten?,1,31022
+5,What's the most memorable birthday surprise you've ever gotten?,1,99280
+6,What's the most memorable birthday surprise you've ever gotten?,3,45175
+7,What's the most memorable birthday surprise you've ever gotten?,1,32269
+8,What's the most memorable birthday surprise you've ever gotten?,4,25635
+9,What's the most memorable birthday surprise you've ever gotten?,2,7076
+10,What's the most memorable birthday surprise you've ever gotten?,1,13945
+11,What's the most memorable birthday surprise you've ever gotten?,1,94976
+12,What's the most memorable birthday surprise you've ever gotten?,4,85876
+13,What's the most memorable birthday surprise you've ever gotten?,3,42895
+14,What's the most memorable birthday surprise you've ever gotten?,1,87203
+15,What's the most memorable birthday surprise you've ever gotten?,1,33990
+16,What's the most memorable birthday surprise you've ever gotten?,1,53818
+17,What's the most memorable birthday surprise you've ever gotten?,2,88270
+18,What's the most memorable birthday surprise you've ever gotten?,1,63088
+19,What's the most memorable birthday surprise you've ever gotten?,1,63093
+20,What's the most memorable birthday surprise you've ever gotten?,1,85606
+21,What's the most memorable birthday surprise you've ever gotten?,1,50903
+22,What's the most memorable birthday surprise you've ever gotten?,1,44629
+23,What's the most memorable birthday surprise you've ever gotten?,1,60647
+24,What's the most memorable birthday surprise you've ever gotten?,1,60810
+25,What's the most memorable birthday surprise you've ever gotten?,1,7884
+26,What's the most memorable birthday surprise you've ever gotten?,1,72431
+27,What's the most memorable birthday surprise you've ever gotten?,1,71924
+28,What's the most memorable birthday surprise you've ever gotten?,1,14507
+29,What's the most memorable birthday surprise you've ever gotten?,1,49968
+30,"What simple life decision, looking back, drastically changed the course of your life?",5,20515
+31,"What simple life decision, looking back, drastically changed the course of your life?",4,10940
+32,"What simple life decision, looking back, drastically changed the course of your life?",5,24766
+33,"What simple life decision, looking back, drastically changed the course of your life?",5,47753
+34,"What simple life decision, looking back, drastically changed the course of your life?",4,14258
+35,"What simple life decision, looking back, drastically changed the course of your life?",5,67162
+36,"What simple life decision, looking back, drastically changed the course of your life?",3,92265
+37,"What simple life decision, looking back, drastically changed the course of your life?",4,96597
+38,"What simple life decision, looking back, drastically changed the course of your life?",5,30602
+39,"What simple life decision, looking back, drastically changed the course of your life?",5,81294
+40,"What simple life decision, looking back, drastically changed the course of your life?",1,86708
+41,"What simple life decision, looking back, drastically changed the course of your life?",5,18819
+42,"What simple life decision, looking back, drastically changed the course of your life?",2,26889
+43,"What simple life decision, looking back, drastically changed the course of your life?",1,22027
+44,"What simple life decision, looking back, drastically changed the course of your life?",5,32138
+45,"What simple life decision, looking back, drastically changed the course of your life?",5,13383
+46,"What simple life decision, looking back, drastically changed the course of your life?",1,34476
+47,"What simple life decision, looking back, drastically changed the course of your life?",4,20469
+48,"What simple life decision, looking back, drastically changed the course of your life?",1,78183
+49,"What simple life decision, looking back, drastically changed the course of your life?",1,8309
+50,"What simple life decision, looking back, drastically changed the course of your life?",1,6439
+51,"What simple life decision, looking back, drastically changed the course of your life?",1,27289
+52,"What simple life decision, looking back, drastically changed the course of your life?",1,61517
+53,"What simple life decision, looking back, drastically changed the course of your life?",1,48531
+54,"What simple life decision, looking back, drastically changed the course of your life?",1,33601
+55,"What simple life decision, looking back, drastically changed the course of your life?",1,75124
+56,"What simple life decision, looking back, drastically changed the course of your life?",2,48825
+57,"What simple life decision, looking back, drastically changed the course of your life?",1,30680
+58,"What simple life decision, looking back, drastically changed the course of your life?",1,55677
+59,"What simple life decision, looking back, drastically changed the course of your life?",1,3524
+60,What’s the most bizarre dream you remember having?,5,64857
+61,What’s the most bizarre dream you remember having?,5,87822
+62,What’s the most bizarre dream you remember having?,5,79518
+63,What’s the most bizarre dream you remember having?,5,48147
+64,What’s the most bizarre dream you remember having?,4,95059
+65,What’s the most bizarre dream you remember having?,3,24164
+66,What’s the most bizarre dream you remember having?,5,64132
+67,What’s the most bizarre dream you remember having?,1,55099
+68,What’s the most bizarre dream you remember having?,1,94073
+69,What’s the most bizarre dream you remember having?,3,20011
+70,What’s the most bizarre dream you remember having?,5,22968
+71,What’s the most bizarre dream you remember having?,1,9455
+72,What’s the most bizarre dream you remember having?,4,79249
+73,What’s the most bizarre dream you remember having?,1,29403
+74,What’s the most bizarre dream you remember having?,1,69940
+75,What’s the most bizarre dream you remember having?,5,9676
+76,What’s the most bizarre dream you remember having?,1,14120
+77,What’s the most bizarre dream you remember having?,4,38155
+78,What’s the most bizarre dream you remember having?,4,31195
+79,What’s the most bizarre dream you remember having?,5,56076
+80,What’s the most bizarre dream you remember having?,1,56761
+81,What’s the most bizarre dream you remember having?,1,22003
+82,What’s the most bizarre dream you remember having?,1,56965
+83,What’s the most bizarre dream you remember having?,1,70852
+84,What’s the most bizarre dream you remember having?,1,7953
+85,What’s the most bizarre dream you remember having?,1,22524
+86,What’s the most bizarre dream you remember having?,1,22936
+87,What’s the most bizarre dream you remember having?,1,10636
+88,What’s the most bizarre dream you remember having?,1,25570
+89,What’s the most bizarre dream you remember having?,1,36188
+90,"If you could have dinner with any historical figure, who would it be and why?",5,6996
+91,"If you could have dinner with any historical figure, who would it be and why?",5,5622
+92,"If you could have dinner with any historical figure, who would it be and why?",4,46631
+93,"If you could have dinner with any historical figure, who would it be and why?",1,63496
+94,"If you could have dinner with any historical figure, who would it be and why?",3,92000
+95,"If you could have dinner with any historical figure, who would it be and why?",3,57011
+96,"If you could have dinner with any historical figure, who would it be and why?",2,91387
+97,"If you could have dinner with any historical figure, who would it be and why?",2,26803
+98,"If you could have dinner with any historical figure, who would it be and why?",4,64190
+99,"If you could have dinner with any historical figure, who would it be and why?",2,70099
+100,"If you could have dinner with any historical figure, who would it be and why?",2,50476
+101,"If you could have dinner with any historical figure, who would it be and why?",4,4659
+102,"If you could have dinner with any historical figure, who would it be and why?",3,51299
+103,"If you could have dinner with any historical figure, who would it be and why?",2,91318
+104,"If you could have dinner with any historical figure, who would it be and why?",2,67568
+105,"If you could have dinner with any historical figure, who would it be and why?",2,31185
+106,"If you could have dinner with any historical figure, who would it be and why?",2,33542
+107,"If you could have dinner with any historical figure, who would it be and why?",2,39594
+108,"If you could have dinner with any historical figure, who would it be and why?",1,21120
+109,"If you could have dinner with any historical figure, who would it be and why?",2,32651
+110,"If you could have dinner with any historical figure, who would it be and why?",1,14652
+111,"If you could have dinner with any historical figure, who would it be and why?",2,16830
+112,"If you could have dinner with any historical figure, who would it be and why?",1,42368
+113,"If you could have dinner with any historical figure, who would it be and why?",1,64942
+114,"If you could have dinner with any historical figure, who would it be and why?",1,4414
+115,"If you could have dinner with any historical figure, who would it be and why?",1,7995
+116,"If you could have dinner with any historical figure, who would it be and why?",1,44367
+117,"If you could have dinner with any historical figure, who would it be and why?",1,72001
+118,"If you could have dinner with any historical figure, who would it be and why?",1,38093
+119,"If you could have dinner with any historical figure, who would it be and why?",1,13092
+120,What's the funniest joke you know by heart?,5,27600
+121,What's the funniest joke you know by heart?,5,78238
+122,What's the funniest joke you know by heart?,5,79315
+123,What's the funniest joke you know by heart?,5,50760
+124,What's the funniest joke you know by heart?,4,17689
+125,What's the funniest joke you know by heart?,4,49108
+126,What's the funniest joke you know by heart?,3,76284
+127,What's the funniest joke you know by heart?,4,23670
+128,What's the funniest joke you know by heart?,4,13062
+129,What's the funniest joke you know by heart?,5,33826
+130,What's the funniest joke you know by heart?,5,2455
+131,What's the funniest joke you know by heart?,5,58957
+132,What's the funniest joke you know by heart?,5,98085
+133,What's the funniest joke you know by heart?,5,69189
+134,What's the funniest joke you know by heart?,5,19997
+135,What's the funniest joke you know by heart?,5,18080
+136,What's the funniest joke you know by heart?,4,47491
+137,What's the funniest joke you know by heart?,4,73966
+138,What's the funniest joke you know by heart?,5,13166
+139,What's the funniest joke you know by heart?,3,21826
+140,What's the funniest joke you know by heart?,1,82978
+141,What's the funniest joke you know by heart?,1,94043
+142,What's the funniest joke you know by heart?,1,94501
+143,What's the funniest joke you know by heart?,1,92023
+144,What's the funniest joke you know by heart?,1,62451
+145,What's the funniest joke you know by heart?,1,11978
+146,What's the funniest joke you know by heart?,1,89905
+147,What's the funniest joke you know by heart?,1,92581
+148,What's the funniest joke you know by heart?,1,94322
+149,What's the funniest joke you know by heart?,1,78532
+150,What's a life lesson you think everyone should learn earlier in life?,5,2515
+151,What's a life lesson you think everyone should learn earlier in life?,4,38826
+152,What's a life lesson you think everyone should learn earlier in life?,5,15520
+153,What's a life lesson you think everyone should learn earlier in life?,4,96654
+154,What's a life lesson you think everyone should learn earlier in life?,2,82523
+155,What's a life lesson you think everyone should learn earlier in life?,3,97051
+156,What's a life lesson you think everyone should learn earlier in life?,4,25291
+157,What's a life lesson you think everyone should learn earlier in life?,4,84828
+158,What's a life lesson you think everyone should learn earlier in life?,4,59081
+159,What's a life lesson you think everyone should learn earlier in life?,5,56793
+160,What's a life lesson you think everyone should learn earlier in life?,5,2520
+161,What's a life lesson you think everyone should learn earlier in life?,3,61648
+162,What's a life lesson you think everyone should learn earlier in life?,3,58591
+163,What's a life lesson you think everyone should learn earlier in life?,1,8011
+164,What's a life lesson you think everyone should learn earlier in life?,1,21927
+165,What's a life lesson you think everyone should learn earlier in life?,4,31800
+166,What's a life lesson you think everyone should learn earlier in life?,3,66134
+167,What's a life lesson you think everyone should learn earlier in life?,5,88642
+168,What's a life lesson you think everyone should learn earlier in life?,1,81909
+169,What's a life lesson you think everyone should learn earlier in life?,1,14260
+170,What's a life lesson you think everyone should learn earlier in life?,1,90967
+171,What's a life lesson you think everyone should learn earlier in life?,1,86931
+172,What's a life lesson you think everyone should learn earlier in life?,1,8959
+173,What's a life lesson you think everyone should learn earlier in life?,1,64908
+174,What's a life lesson you think everyone should learn earlier in life?,1,43240
+175,What's a life lesson you think everyone should learn earlier in life?,1,23296
+176,What's a life lesson you think everyone should learn earlier in life?,1,88261
+177,What's a life lesson you think everyone should learn earlier in life?,1,26228
+178,What's a life lesson you think everyone should learn earlier in life?,1,7493
+179,What's a life lesson you think everyone should learn earlier in life?,1,69317
+180,What's the furthest you've ever traveled and why did you go?,5,33091
+181,What's the furthest you've ever traveled and why did you go?,1,34831
+182,What's the furthest you've ever traveled and why did you go?,1,58188
+183,What's the furthest you've ever traveled and why did you go?,3,17070
+184,What's the furthest you've ever traveled and why did you go?,1,83998
+185,What's the furthest you've ever traveled and why did you go?,1,34919
+186,What's the furthest you've ever traveled and why did you go?,1,97381
+187,What's the furthest you've ever traveled and why did you go?,2,99409
+188,What's the furthest you've ever traveled and why did you go?,1,61387
+189,What's the furthest you've ever traveled and why did you go?,3,85114
+190,What's the furthest you've ever traveled and why did you go?,1,39303
+191,What's the furthest you've ever traveled and why did you go?,1,34798
+192,What's the furthest you've ever traveled and why did you go?,1,54494
+193,What's the furthest you've ever traveled and why did you go?,1,61202
+194,What's the furthest you've ever traveled and why did you go?,1,48383
+195,What's the furthest you've ever traveled and why did you go?,3,36048
+196,What's the furthest you've ever traveled and why did you go?,1,25766
+197,What's the furthest you've ever traveled and why did you go?,1,39571
+198,What's the furthest you've ever traveled and why did you go?,1,87364
+199,What's the furthest you've ever traveled and why did you go?,1,77901
+200,What's the furthest you've ever traveled and why did you go?,1,27823
+201,What's the furthest you've ever traveled and why did you go?,1,97693
+202,What's the furthest you've ever traveled and why did you go?,1,77985
+203,What's the furthest you've ever traveled and why did you go?,1,61924
+204,What's the furthest you've ever traveled and why did you go?,1,59306
+205,What's the furthest you've ever traveled and why did you go?,1,12939
+206,What's the furthest you've ever traveled and why did you go?,1,73294
+207,What's the furthest you've ever traveled and why did you go?,1,84612
+208,What's the furthest you've ever traveled and why did you go?,1,33174
+209,What's the furthest you've ever traveled and why did you go?,1,57857
+210,"If you could change one event in history, what would it be?",5,2453
+211,"If you could change one event in history, what would it be?",5,36097
+212,"If you could change one event in history, what would it be?",5,53103
+213,"If you could change one event in history, what would it be?",5,52516
+214,"If you could change one event in history, what would it be?",5,57488
+215,"If you could change one event in history, what would it be?",5,49656
+216,"If you could change one event in history, what would it be?",1,95816
+217,"If you could change one event in history, what would it be?",1,58048
+218,"If you could change one event in history, what would it be?",4,44861
+219,"If you could change one event in history, what would it be?",5,29338
+220,"If you could change one event in history, what would it be?",4,73063
+221,"If you could change one event in history, what would it be?",3,67283
+222,"If you could change one event in history, what would it be?",3,36333
+223,"If you could change one event in history, what would it be?",5,11040
+224,"If you could change one event in history, what would it be?",3,87038
+225,"If you could change one event in history, what would it be?",3,91179
+226,"If you could change one event in history, what would it be?",3,24823
+227,"If you could change one event in history, what would it be?",1,43316
+228,"If you could change one event in history, what would it be?",3,39070
+229,"If you could change one event in history, what would it be?",3,57724
+230,"If you could change one event in history, what would it be?",1,65187
+231,"If you could change one event in history, what would it be?",1,64823
+232,"If you could change one event in history, what would it be?",1,12651
+233,"If you could change one event in history, what would it be?",1,2213
+234,"If you could change one event in history, what would it be?",1,12933
+235,"If you could change one event in history, what would it be?",1,3768
+236,"If you could change one event in history, what would it be?",1,70343
+237,"If you could change one event in history, what would it be?",1,24723
+238,"If you could change one event in history, what would it be?",1,69196
+239,"If you could change one event in history, what would it be?",1,74020
+240,How do you deal with stress in your life?,5,41132
+241,How do you deal with stress in your life?,1,85313
+242,How do you deal with stress in your life?,5,28359
+243,How do you deal with stress in your life?,2,59490
+244,How do you deal with stress in your life?,1,53641
+245,How do you deal with stress in your life?,5,51757
+246,How do you deal with stress in your life?,5,63880
+247,How do you deal with stress in your life?,2,59521
+248,How do you deal with stress in your life?,1,67426
+249,How do you deal with stress in your life?,1,86622
+250,How do you deal with stress in your life?,1,53997
+251,How do you deal with stress in your life?,2,5534
+252,How do you deal with stress in your life?,5,46299
+253,How do you deal with stress in your life?,1,50365
+254,How do you deal with stress in your life?,5,92848
+255,How do you deal with stress in your life?,1,47872
+256,How do you deal with stress in your life?,1,62985
+257,How do you deal with stress in your life?,1,14676
+258,How do you deal with stress in your life?,1,37735
+259,How do you deal with stress in your life?,4,60314
+260,How do you deal with stress in your life?,1,64759
+261,How do you deal with stress in your life?,1,91801
+262,How do you deal with stress in your life?,1,98487
+263,How do you deal with stress in your life?,1,36971
+264,How do you deal with stress in your life?,1,3743
+265,How do you deal with stress in your life?,1,22501
+266,How do you deal with stress in your life?,1,49884
+267,How do you deal with stress in your life?,1,70750
+268,How do you deal with stress in your life?,1,63411
+269,How do you deal with stress in your life?,1,42886
+270,What's an unconventional tradition your family has?,4,59620
+271,What's an unconventional tradition your family has?,5,76512
+272,What's an unconventional tradition your family has?,5,47298
+273,What's an unconventional tradition your family has?,4,93329
+274,What's an unconventional tradition your family has?,4,31468
+275,What's an unconventional tradition your family has?,1,61174
+276,What's an unconventional tradition your family has?,1,89364
+277,What's an unconventional tradition your family has?,4,70574
+278,What's an unconventional tradition your family has?,5,93000
+279,What's an unconventional tradition your family has?,5,38689
+280,What's an unconventional tradition your family has?,3,92566
+281,What's an unconventional tradition your family has?,5,92087
+282,What's an unconventional tradition your family has?,4,47255
+283,What's an unconventional tradition your family has?,3,9541
+284,What's an unconventional tradition your family has?,1,77492
+285,What's an unconventional tradition your family has?,5,55317
+286,What's an unconventional tradition your family has?,4,46696
+287,What's an unconventional tradition your family has?,1,54327
+288,What's an unconventional tradition your family has?,1,84522
+289,What's an unconventional tradition your family has?,1,93746
+290,What's an unconventional tradition your family has?,1,90359
+291,What's an unconventional tradition your family has?,1,81987
+292,What's an unconventional tradition your family has?,1,68881
+293,What's an unconventional tradition your family has?,1,87074
+294,What's an unconventional tradition your family has?,1,65424
+295,What's an unconventional tradition your family has?,1,23740
+296,What's an unconventional tradition your family has?,1,19270
+297,What's an unconventional tradition your family has?,1,89467
+298,What's an unconventional tradition your family has?,1,79068
+299,What's an unconventional tradition your family has?,1,27183
+300,What's your favorite movie that most people may not know about?,4,14645
+301,What's your favorite movie that most people may not know about?,4,15901
+302,What's your favorite movie that most people may not know about?,4,1858
+303,What's your favorite movie that most people may not know about?,2,50290
+304,What's your favorite movie that most people may not know about?,4,30171
+305,What's your favorite movie that most people may not know about?,4,54313
+306,What's your favorite movie that most people may not know about?,4,98115
+307,What's your favorite movie that most people may not know about?,4,17191
+308,What's your favorite movie that most people may not know about?,4,46942
+309,What's your favorite movie that most people may not know about?,3,50249
+310,What's your favorite movie that most people may not know about?,4,64998
+311,What's your favorite movie that most people may not know about?,2,20351
+312,What's your favorite movie that most people may not know about?,2,28687
+313,What's your favorite movie that most people may not know about?,4,68379
+314,What's your favorite movie that most people may not know about?,2,7886
+315,What's your favorite movie that most people may not know about?,2,2046
+316,What's your favorite movie that most people may not know about?,2,483
+317,What's your favorite movie that most people may not know about?,2,27432
+318,What's your favorite movie that most people may not know about?,4,26063
+319,What's your favorite movie that most people may not know about?,4,68325
+320,What's your favorite movie that most people may not know about?,1,56694
+321,What's your favorite movie that most people may not know about?,1,821
+322,What's your favorite movie that most people may not know about?,1,930
+323,What's your favorite movie that most people may not know about?,1,96850
+324,What's your favorite movie that most people may not know about?,1,88408
+325,What's your favorite movie that most people may not know about?,1,72277
+326,What's your favorite movie that most people may not know about?,1,580
+327,What's your favorite movie that most people may not know about?,1,11654
+328,What's your favorite movie that most people may not know about?,1,49244
+329,What's your favorite movie that most people may not know about?,1,164
+330,What unsolved mystery intrigues you the most?,4,70244
+331,What unsolved mystery intrigues you the most?,2,54433
+332,What unsolved mystery intrigues you the most?,5,12349
+333,What unsolved mystery intrigues you the most?,5,66206
+334,What unsolved mystery intrigues you the most?,5,7599
+335,What unsolved mystery intrigues you the most?,5,32446
+336,What unsolved mystery intrigues you the most?,5,31260
+337,What unsolved mystery intrigues you the most?,5,66846
+338,What unsolved mystery intrigues you the most?,5,8791
+339,What unsolved mystery intrigues you the most?,1,63686
+340,What unsolved mystery intrigues you the most?,5,90765
+341,What unsolved mystery intrigues you the most?,5,8790
+342,What unsolved mystery intrigues you the most?,5,61647
+343,What unsolved mystery intrigues you the most?,5,70736
+344,What unsolved mystery intrigues you the most?,2,27279
+345,What unsolved mystery intrigues you the most?,2,21662
+346,What unsolved mystery intrigues you the most?,5,32487
+347,What unsolved mystery intrigues you the most?,1,29213
+348,What unsolved mystery intrigues you the most?,5,75155
+349,What unsolved mystery intrigues you the most?,5,65940
+350,What unsolved mystery intrigues you the most?,1,75830
+351,What unsolved mystery intrigues you the most?,1,27406
+352,What unsolved mystery intrigues you the most?,1,90711
+353,What unsolved mystery intrigues you the most?,1,75324
+354,What unsolved mystery intrigues you the most?,1,61914
+355,What unsolved mystery intrigues you the most?,1,82586
+356,What unsolved mystery intrigues you the most?,1,32313
+357,What unsolved mystery intrigues you the most?,1,83125
+358,What unsolved mystery intrigues you the most?,1,62135
+359,What unsolved mystery intrigues you the most?,1,93141
+360,When did you feel the most scared and why?,4,38262
+361,When did you feel the most scared and why?,3,21078
+362,When did you feel the most scared and why?,1,60730
+363,When did you feel the most scared and why?,2,9468
+364,When did you feel the most scared and why?,1,70322
+365,When did you feel the most scared and why?,4,37868
+366,When did you feel the most scared and why?,1,94081
+367,When did you feel the most scared and why?,3,41342
+368,When did you feel the most scared and why?,1,63362
+369,When did you feel the most scared and why?,1,59915
+370,When did you feel the most scared and why?,1,58222
+371,When did you feel the most scared and why?,1,1785
+372,When did you feel the most scared and why?,1,59426
+373,When did you feel the most scared and why?,4,33721
+374,When did you feel the most scared and why?,1,16344
+375,When did you feel the most scared and why?,4,7884
+376,When did you feel the most scared and why?,1,43140
+377,When did you feel the most scared and why?,1,43331
+378,When did you feel the most scared and why?,1,25024
+379,When did you feel the most scared and why?,2,71651
+380,When did you feel the most scared and why?,1,3273
+381,When did you feel the most scared and why?,1,80474
+382,When did you feel the most scared and why?,1,75675
+383,When did you feel the most scared and why?,1,29122
+384,When did you feel the most scared and why?,1,92816
+385,When did you feel the most scared and why?,1,2535
+386,When did you feel the most scared and why?,1,76524
+387,When did you feel the most scared and why?,2,94648
+388,When did you feel the most scared and why?,1,25122
+389,When did you feel the most scared and why?,1,38702
+390,What's something you wish was no longer taboo in society?,4,4788
+391,What's something you wish was no longer taboo in society?,4,72482
+392,What's something you wish was no longer taboo in society?,5,56989
+393,What's something you wish was no longer taboo in society?,1,94993
+394,What's something you wish was no longer taboo in society?,3,9903
+395,What's something you wish was no longer taboo in society?,4,30506
+396,What's something you wish was no longer taboo in society?,1,80575
+397,What's something you wish was no longer taboo in society?,4,25127
+398,What's something you wish was no longer taboo in society?,4,10830
+399,What's something you wish was no longer taboo in society?,1,80647
+400,What's something you wish was no longer taboo in society?,4,64405
+401,What's something you wish was no longer taboo in society?,5,46250
+402,What's something you wish was no longer taboo in society?,4,71886
+403,What's something you wish was no longer taboo in society?,2,81971
+404,What's something you wish was no longer taboo in society?,4,5876
+405,What's something you wish was no longer taboo in society?,1,18591
+406,What's something you wish was no longer taboo in society?,1,72364
+407,What's something you wish was no longer taboo in society?,1,75518
+408,What's something you wish was no longer taboo in society?,3,65368
+409,What's something you wish was no longer taboo in society?,3,42065
+410,What's something you wish was no longer taboo in society?,1,70582
+411,What's something you wish was no longer taboo in society?,1,47022
+412,What's something you wish was no longer taboo in society?,1,8260
+413,What's something you wish was no longer taboo in society?,1,80829
+414,What's something you wish was no longer taboo in society?,1,95645
+415,What's something you wish was no longer taboo in society?,1,13866
+416,What's something you wish was no longer taboo in society?,1,6152
+417,What's something you wish was no longer taboo in society?,1,49474
+418,What's something you wish was no longer taboo in society?,1,40899
+419,What's something you wish was no longer taboo in society?,1,39031
+420,What is the most embarrassing situation you have ever been in?,2,31423
+421,What is the most embarrassing situation you have ever been in?,5,91577
+422,What is the most embarrassing situation you have ever been in?,5,9411
+423,What is the most embarrassing situation you have ever been in?,3,31840
+424,What is the most embarrassing situation you have ever been in?,5,3951
+425,What is the most embarrassing situation you have ever been in?,5,48262
+426,What is the most embarrassing situation you have ever been in?,5,9235
+427,What is the most embarrassing situation you have ever been in?,2,72262
+428,What is the most embarrassing situation you have ever been in?,5,83509
+429,What is the most embarrassing situation you have ever been in?,4,53044
+430,What is the most embarrassing situation you have ever been in?,5,95842
+431,What is the most embarrassing situation you have ever been in?,5,51644
+432,What is the most embarrassing situation you have ever been in?,2,53604
+433,What is the most embarrassing situation you have ever been in?,2,95851
+434,What is the most embarrassing situation you have ever been in?,2,94797
+435,What is the most embarrassing situation you have ever been in?,4,24889
+436,What is the most embarrassing situation you have ever been in?,4,53884
+437,What is the most embarrassing situation you have ever been in?,5,70399
+438,What is the most embarrassing situation you have ever been in?,5,48106
+439,What is the most embarrassing situation you have ever been in?,2,30876
+440,What is the most embarrassing situation you have ever been in?,1,7896
+441,What is the most embarrassing situation you have ever been in?,1,50870
+442,What is the most embarrassing situation you have ever been in?,1,30228
+443,What is the most embarrassing situation you have ever been in?,1,86949
+444,What is the most embarrassing situation you have ever been in?,1,66366
+445,What is the most embarrassing situation you have ever been in?,1,65059
+446,What is the most embarrassing situation you have ever been in?,1,52740
+447,What is the most embarrassing situation you have ever been in?,1,98669
+448,What is the most embarrassing situation you have ever been in?,1,79504
+449,What is the most embarrassing situation you have ever been in?,1,86772
+450,How did you make the best use of your spare time during quarantine?,1,5691
+451,How did you make the best use of your spare time during quarantine?,2,67577
+452,How did you make the best use of your spare time during quarantine?,1,70819
+453,How did you make the best use of your spare time during quarantine?,5,87835
+454,How did you make the best use of your spare time during quarantine?,3,30559
+455,How did you make the best use of your spare time during quarantine?,4,19131
+456,How did you make the best use of your spare time during quarantine?,4,91122
+457,How did you make the best use of your spare time during quarantine?,5,76478
+458,How did you make the best use of your spare time during quarantine?,3,65655
+459,How did you make the best use of your spare time during quarantine?,3,64507
+460,How did you make the best use of your spare time during quarantine?,5,20434
+461,How did you make the best use of your spare time during quarantine?,1,18822
+462,How did you make the best use of your spare time during quarantine?,5,75664
+463,How did you make the best use of your spare time during quarantine?,2,66007
+464,How did you make the best use of your spare time during quarantine?,1,52364
+465,How did you make the best use of your spare time during quarantine?,1,13561
+466,How did you make the best use of your spare time during quarantine?,5,56123
+467,How did you make the best use of your spare time during quarantine?,5,86804
+468,How did you make the best use of your spare time during quarantine?,4,77848
+469,How did you make the best use of your spare time during quarantine?,4,32498
+470,How did you make the best use of your spare time during quarantine?,1,47086
+471,How did you make the best use of your spare time during quarantine?,1,25899
+472,How did you make the best use of your spare time during quarantine?,1,91769
+473,How did you make the best use of your spare time during quarantine?,1,27021
+474,How did you make the best use of your spare time during quarantine?,1,75396
+475,How did you make the best use of your spare time during quarantine?,1,13034
+476,How did you make the best use of your spare time during quarantine?,1,65530
+477,How did you make the best use of your spare time during quarantine?,1,54453
+478,How did you make the best use of your spare time during quarantine?,1,29142
+479,How did you make the best use of your spare time during quarantine?,1,15990
+480,What’s something you know you do differently than most people?,1,61200
+481,What’s something you know you do differently than most people?,2,77856
+482,What’s something you know you do differently than most people?,3,82565
+483,What’s something you know you do differently than most people?,3,19062
+484,What’s something you know you do differently than most people?,2,1823
+485,What’s something you know you do differently than most people?,1,94870
+486,What’s something you know you do differently than most people?,3,22908
+487,What’s something you know you do differently than most people?,1,83839
+488,What’s something you know you do differently than most people?,1,64177
+489,What’s something you know you do differently than most people?,1,37177
+490,What’s something you know you do differently than most people?,1,70338
+491,What’s something you know you do differently than most people?,1,83233
+492,What’s something you know you do differently than most people?,1,74267
+493,What’s something you know you do differently than most people?,4,66777
+494,What’s something you know you do differently than most people?,1,87731
+495,What’s something you know you do differently than most people?,1,57856
+496,What’s something you know you do differently than most people?,1,60363
+497,What’s something you know you do differently than most people?,4,16517
+498,What’s something you know you do differently than most people?,1,46914
+499,What’s something you know you do differently than most people?,5,69145
+500,What’s something you know you do differently than most people?,1,25119
+501,What’s something you know you do differently than most people?,1,6730
+502,What’s something you know you do differently than most people?,1,74852
+503,What’s something you know you do differently than most people?,1,98825
+504,What’s something you know you do differently than most people?,1,38545
+505,What’s something you know you do differently than most people?,1,19924
+506,What’s something you know you do differently than most people?,1,68815
+507,What’s something you know you do differently than most people?,1,35996
+508,What’s something you know you do differently than most people?,1,19925
+509,What’s something you know you do differently than most people?,1,28539
+510,What do you want your legacy to be?,1,20361
+511,What do you want your legacy to be?,1,25755
+512,What do you want your legacy to be?,1,2039
+513,What do you want your legacy to be?,1,86668
+514,What do you want your legacy to be?,1,68217
+515,What do you want your legacy to be?,1,55878
+516,What do you want your legacy to be?,4,72266
+517,What do you want your legacy to be?,1,17230
+518,What do you want your legacy to be?,1,60094
+519,What do you want your legacy to be?,1,99424
+520,What do you want your legacy to be?,3,79340
+521,What do you want your legacy to be?,1,83088
+522,What do you want your legacy to be?,1,11496
+523,What do you want your legacy to be?,1,68066
+524,What do you want your legacy to be?,1,60353
+525,What do you want your legacy to be?,1,44850
+526,What do you want your legacy to be?,1,95676
+527,What do you want your legacy to be?,1,46995
+528,What do you want your legacy to be?,3,69600
+529,What do you want your legacy to be?,1,32506
+530,What do you want your legacy to be?,1,7746
+531,What do you want your legacy to be?,1,81992
+532,What do you want your legacy to be?,1,29406
+533,What do you want your legacy to be?,1,4482
+534,What do you want your legacy to be?,1,57678
+535,What do you want your legacy to be?,1,67544
+536,What do you want your legacy to be?,1,65178
+537,What do you want your legacy to be?,1,51957
+538,What do you want your legacy to be?,1,95790
+539,What do you want your legacy to be?,1,63881
+540,What secret hobby or interest do you have that your friends would be surprised by?,1,63252
+541,What secret hobby or interest do you have that your friends would be surprised by?,4,52739
+542,What secret hobby or interest do you have that your friends would be surprised by?,4,24830
+543,What secret hobby or interest do you have that your friends would be surprised by?,5,66635
+544,What secret hobby or interest do you have that your friends would be surprised by?,1,2670
+545,What secret hobby or interest do you have that your friends would be surprised by?,1,97456
+546,What secret hobby or interest do you have that your friends would be surprised by?,3,33414
+547,What secret hobby or interest do you have that your friends would be surprised by?,1,63062
+548,What secret hobby or interest do you have that your friends would be surprised by?,1,41441
+549,What secret hobby or interest do you have that your friends would be surprised by?,1,82030
+550,What secret hobby or interest do you have that your friends would be surprised by?,1,76594
+551,What secret hobby or interest do you have that your friends would be surprised by?,5,81304
+552,What secret hobby or interest do you have that your friends would be surprised by?,1,68749
+553,What secret hobby or interest do you have that your friends would be surprised by?,1,95848
+554,What secret hobby or interest do you have that your friends would be surprised by?,1,96528
+555,What secret hobby or interest do you have that your friends would be surprised by?,1,80545
+556,What secret hobby or interest do you have that your friends would be surprised by?,3,98664
+557,What secret hobby or interest do you have that your friends would be surprised by?,1,76492
+558,What secret hobby or interest do you have that your friends would be surprised by?,4,64741
+559,What secret hobby or interest do you have that your friends would be surprised by?,1,12038
+560,What secret hobby or interest do you have that your friends would be surprised by?,1,8163
+561,What secret hobby or interest do you have that your friends would be surprised by?,1,27010
+562,What secret hobby or interest do you have that your friends would be surprised by?,1,9285
+563,What secret hobby or interest do you have that your friends would be surprised by?,1,76296
+564,What secret hobby or interest do you have that your friends would be surprised by?,1,13024
+565,What secret hobby or interest do you have that your friends would be surprised by?,3,8017
+566,What secret hobby or interest do you have that your friends would be surprised by?,1,18636
+567,What secret hobby or interest do you have that your friends would be surprised by?,1,5736
+568,What secret hobby or interest do you have that your friends would be surprised by?,1,48054
+569,What secret hobby or interest do you have that your friends would be surprised by?,1,20128
+570,What forms of art have been the most influential to your life?,1,65098
+571,What forms of art have been the most influential to your life?,1,16654
+572,What forms of art have been the most influential to your life?,1,9683
+573,What forms of art have been the most influential to your life?,3,8549
+574,What forms of art have been the most influential to your life?,1,75059
+575,What forms of art have been the most influential to your life?,1,63216
+576,What forms of art have been the most influential to your life?,4,92964
+577,What forms of art have been the most influential to your life?,1,61749
+578,What forms of art have been the most influential to your life?,1,8598
+579,What forms of art have been the most influential to your life?,1,66306
+580,What forms of art have been the most influential to your life?,1,12538
+581,What forms of art have been the most influential to your life?,1,71947
+582,What forms of art have been the most influential to your life?,1,7711
+583,What forms of art have been the most influential to your life?,1,94190
+584,What forms of art have been the most influential to your life?,1,1373
+585,What forms of art have been the most influential to your life?,1,1308
+586,What forms of art have been the most influential to your life?,1,21464
+587,What forms of art have been the most influential to your life?,1,74610
+588,What forms of art have been the most influential to your life?,1,39891
+589,What forms of art have been the most influential to your life?,1,98155
+590,What forms of art have been the most influential to your life?,1,99260
+591,What forms of art have been the most influential to your life?,1,82257
+592,What forms of art have been the most influential to your life?,1,17447
+593,What forms of art have been the most influential to your life?,1,7520
+594,What forms of art have been the most influential to your life?,1,79022
+595,What forms of art have been the most influential to your life?,1,29736
+596,What forms of art have been the most influential to your life?,1,24389
+597,What forms of art have been the most influential to your life?,1,41238
+598,What forms of art have been the most influential to your life?,1,87066
+599,What forms of art have been the most influential to your life?,1,76868
+600,What forms of art have been the most influential to your life?,5,5254
+601,How has the internet changed your outlook on the world?,1,70759
+602,How has the internet changed your outlook on the world?,1,67643
+603,How has the internet changed your outlook on the world?,1,5254
+604,How has the internet changed your outlook on the world?,1,86040
+605,How has the internet changed your outlook on the world?,1,65899
+606,How has the internet changed your outlook on the world?,1,61018
+607,How has the internet changed your outlook on the world?,1,538
+608,How has the internet changed your outlook on the world?,1,96169
+609,How has the internet changed your outlook on the world?,1,9174
+610,How has the internet changed your outlook on the world?,3,67962
+611,How has the internet changed your outlook on the world?,1,14434
+612,How has the internet changed your outlook on the world?,1,53484
+613,How has the internet changed your outlook on the world?,5,92042
+614,How has the internet changed your outlook on the world?,5,95343
+615,How has the internet changed your outlook on the world?,5,52993
+616,How has the internet changed your outlook on the world?,1,77571
+617,How has the internet changed your outlook on the world?,3,86708
+618,How has the internet changed your outlook on the world?,1,2798
+619,How has the internet changed your outlook on the world?,1,49351
+620,How has the internet changed your outlook on the world?,1,33581
+621,How has the internet changed your outlook on the world?,1,12435
+622,How has the internet changed your outlook on the world?,1,17680
+623,How has the internet changed your outlook on the world?,1,5520
+624,How has the internet changed your outlook on the world?,1,85813
+625,How has the internet changed your outlook on the world?,1,52253
+626,How has the internet changed your outlook on the world?,1,85919
+627,How has the internet changed your outlook on the world?,1,45260
+628,How has the internet changed your outlook on the world?,1,18081
+629,How has the internet changed your outlook on the world?,1,3182
+630,How has the internet changed your outlook on the world?,1,59321
+631,What's the most impactful charity or non-profit organization in your opinion?,1,15764
+632,What's the most impactful charity or non-profit organization in your opinion?,3,42519
+633,What's the most impactful charity or non-profit organization in your opinion?,1,99956
+634,What's the most impactful charity or non-profit organization in your opinion?,1,2085
+635,What's the most impactful charity or non-profit organization in your opinion?,4,27811
+636,What's the most impactful charity or non-profit organization in your opinion?,2,52532
+637,What's the most impactful charity or non-profit organization in your opinion?,5,9722
+638,What's the most impactful charity or non-profit organization in your opinion?,1,81355
+639,What's the most impactful charity or non-profit organization in your opinion?,1,90353
+640,What's the most impactful charity or non-profit organization in your opinion?,1,15553
+641,What's the most impactful charity or non-profit organization in your opinion?,5,7782
+642,What's the most impactful charity or non-profit organization in your opinion?,1,25432
+643,What's the most impactful charity or non-profit organization in your opinion?,4,55257
+644,What's the most impactful charity or non-profit organization in your opinion?,1,2698
+645,What's the most impactful charity or non-profit organization in your opinion?,4,3116
+646,What's the most impactful charity or non-profit organization in your opinion?,1,32195
+647,What's the most impactful charity or non-profit organization in your opinion?,1,48995
+648,What's the most impactful charity or non-profit organization in your opinion?,5,90031
+649,What's the most impactful charity or non-profit organization in your opinion?,1,18833
+650,What's the most impactful charity or non-profit organization in your opinion?,1,25847
+651,What's the most impactful charity or non-profit organization in your opinion?,1,25225
+652,What's the most impactful charity or non-profit organization in your opinion?,1,54325
+653,What's the most impactful charity or non-profit organization in your opinion?,1,41669
+654,What's the most impactful charity or non-profit organization in your opinion?,1,87675
+655,What's the most impactful charity or non-profit organization in your opinion?,1,63382
+656,What's the most impactful charity or non-profit organization in your opinion?,1,78960
+657,What's the most impactful charity or non-profit organization in your opinion?,1,9687
+658,What's the most impactful charity or non-profit organization in your opinion?,1,25306
+659,What's the most impactful charity or non-profit organization in your opinion?,1,83682
+660,What's the most impactful charity or non-profit organization in your opinion?,1,58390
+661,What's your most controversial opinion?,1,50633
+662,What's your most controversial opinion?,1,45106
+663,What's your most controversial opinion?,1,29113
+664,What's your most controversial opinion?,1,93062
+665,What's your most controversial opinion?,3,94003
+666,What's your most controversial opinion?,1,76419
+667,What's your most controversial opinion?,4,74078
+668,What's your most controversial opinion?,4,57321
+669,What's your most controversial opinion?,2,23095
+670,What's your most controversial opinion?,1,62826
+671,What's your most controversial opinion?,3,73079
+672,What's your most controversial opinion?,1,13885
+673,What's your most controversial opinion?,1,54827
+674,What's your most controversial opinion?,4,48207
+675,What's your most controversial opinion?,1,59082
+676,What's your most controversial opinion?,1,47885
+677,What's your most controversial opinion?,1,1041
+678,What's your most controversial opinion?,2,36630
+679,What's your most controversial opinion?,2,25381
+680,What's your most controversial opinion?,1,22351
+681,What's your most controversial opinion?,1,8961
+682,What's your most controversial opinion?,1,27258
+683,What's your most controversial opinion?,1,97897
+684,What's your most controversial opinion?,1,96473
+685,What's your most controversial opinion?,1,99638
+686,What's your most controversial opinion?,1,35246
+687,What's your most controversial opinion?,1,46571
+688,What's your most controversial opinion?,1,66257
+689,What's your most controversial opinion?,1,1344
+690,What's your most controversial opinion?,1,54115
+691,What's the strangest coincidence that's ever happened to you?,1,21415
+692,What's the strangest coincidence that's ever happened to you?,5,76158
+693,What's the strangest coincidence that's ever happened to you?,1,5554
+694,What's the strangest coincidence that's ever happened to you?,5,52821
+695,What's the strangest coincidence that's ever happened to you?,1,723
+696,What's the strangest coincidence that's ever happened to you?,1,9556
+697,What's the strangest coincidence that's ever happened to you?,2,86525
+698,What's the strangest coincidence that's ever happened to you?,1,56518
+699,What's the strangest coincidence that's ever happened to you?,1,99280
+700,What's the strangest coincidence that's ever happened to you?,4,67676
+701,What's the strangest coincidence that's ever happened to you?,2,91219
+702,What's the strangest coincidence that's ever happened to you?,1,73293
+703,What's the strangest coincidence that's ever happened to you?,1,85887
+704,What's the strangest coincidence that's ever happened to you?,1,86015
+705,What's the strangest coincidence that's ever happened to you?,1,20953
+706,What's the strangest coincidence that's ever happened to you?,1,66366
+707,What's the strangest coincidence that's ever happened to you?,1,94298
+708,What's the strangest coincidence that's ever happened to you?,1,68376
+709,What's the strangest coincidence that's ever happened to you?,1,73629
+710,What's the strangest coincidence that's ever happened to you?,1,58237
+711,What's the strangest coincidence that's ever happened to you?,1,98915
+712,What's the strangest coincidence that's ever happened to you?,1,63201
+713,What's the strangest coincidence that's ever happened to you?,1,72004
+714,What's the strangest coincidence that's ever happened to you?,1,22314
+715,What's the strangest coincidence that's ever happened to you?,1,18615
+716,What's the strangest coincidence that's ever happened to you?,1,27766
+717,What's the strangest coincidence that's ever happened to you?,1,82220
+718,What's the strangest coincidence that's ever happened to you?,1,55714
+719,What's the strangest coincidence that's ever happened to you?,1,23491
+720,What's the strangest coincidence that's ever happened to you?,1,95123
+721,What's a common misconception about your culture that you'd like to correct?,1,45291
+722,What's a common misconception about your culture that you'd like to correct?,1,27622
+723,What's a common misconception about your culture that you'd like to correct?,1,1397
+724,What's a common misconception about your culture that you'd like to correct?,1,42631
+725,What's a common misconception about your culture that you'd like to correct?,1,81716
+726,What's a common misconception about your culture that you'd like to correct?,5,66718
+727,What's a common misconception about your culture that you'd like to correct?,1,37685
+728,What's a common misconception about your culture that you'd like to correct?,1,47853
+729,What's a common misconception about your culture that you'd like to correct?,3,92671
+730,What's a common misconception about your culture that you'd like to correct?,5,72465
+731,What's a common misconception about your culture that you'd like to correct?,1,32210
+732,What's a common misconception about your culture that you'd like to correct?,1,20594
+733,What's a common misconception about your culture that you'd like to correct?,4,63724
+734,What's a common misconception about your culture that you'd like to correct?,1,94589
+735,What's a common misconception about your culture that you'd like to correct?,5,16152
+736,What's a common misconception about your culture that you'd like to correct?,4,408
+737,What's a common misconception about your culture that you'd like to correct?,1,83911
+738,What's a common misconception about your culture that you'd like to correct?,1,9052
+739,What's a common misconception about your culture that you'd like to correct?,1,97643
+740,What's a common misconception about your culture that you'd like to correct?,3,46950
+741,What's a common misconception about your culture that you'd like to correct?,1,40250
+742,What's a common misconception about your culture that you'd like to correct?,1,95097
+743,What's a common misconception about your culture that you'd like to correct?,1,99931
+744,What's a common misconception about your culture that you'd like to correct?,1,26990
+745,What's a common misconception about your culture that you'd like to correct?,1,4206
+746,What's a common misconception about your culture that you'd like to correct?,1,88825
+747,What's a common misconception about your culture that you'd like to correct?,1,52881
+748,What's the most incredible act of kindness someone's ever done for you?,2,2477
+749,What's the most incredible act of kindness someone's ever done for you?,5,61348
+750,What's the most incredible act of kindness someone's ever done for you?,1,15106
+751,What's the most incredible act of kindness someone's ever done for you?,1,85
+752,What's the most incredible act of kindness someone's ever done for you?,5,85751
+753,What's the most incredible act of kindness someone's ever done for you?,5,2497
+754,What's the most incredible act of kindness someone's ever done for you?,2,86646
+755,What's the most incredible act of kindness someone's ever done for you?,5,78228
+756,What's the most incredible act of kindness someone's ever done for you?,3,72426
+757,What's the most incredible act of kindness someone's ever done for you?,1,35272
+758,What's the most incredible act of kindness someone's ever done for you?,1,50652
+759,What's the most incredible act of kindness someone's ever done for you?,5,85395
+760,What's the most incredible act of kindness someone's ever done for you?,5,75396
+761,What's the most incredible act of kindness someone's ever done for you?,5,83352
+762,What's the most incredible act of kindness someone's ever done for you?,1,66047
+763,What's the most incredible act of kindness someone's ever done for you?,5,44888
+764,What's the most incredible act of kindness someone's ever done for you?,1,51223
+765,What's the most incredible act of kindness someone's ever done for you?,4,51102
+766,What's the most incredible act of kindness someone's ever done for you?,2,60238
+767,What's the most incredible act of kindness someone's ever done for you?,5,96742
+768,What's the most incredible act of kindness someone's ever done for you?,1,79356
+769,What's the most incredible act of kindness someone's ever done for you?,1,17417
+770,What's the most incredible act of kindness someone's ever done for you?,1,47609
+771,What's the most incredible act of kindness someone's ever done for you?,1,53222
+772,What's the most incredible act of kindness someone's ever done for you?,1,30102
+773,What's the most incredible act of kindness someone's ever done for you?,1,63456
+774,What's the most incredible act of kindness someone's ever done for you?,1,69636
+775,What's the most incredible act of kindness someone's ever done for you?,1,70501
+776,What's the most incredible act of kindness someone's ever done for you?,1,67727
+777,What's the most incredible act of kindness someone's ever done for you?,1,81750
