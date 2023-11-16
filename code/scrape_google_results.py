@@ -22,7 +22,7 @@ def run_scrapper(base: str, limit: int, queries: str, cache_file: str, save_path
 def main():
     base = 'https://google.com/search?'
     queries = load_queries("eval/evaluation_queries.csv")
-    run_scrapper(base, 20, queries[193:], cache_file = 'files/cache.json', save_path = 'files/processed_search_results/results.csv')
+    run_scrapper(base, 20, queries[231:], cache_file = 'files/cache.json', save_path = 'files/processed_search_results/results.csv')
 
 if __name__ == '__main__':
     main()
