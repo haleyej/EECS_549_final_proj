@@ -7,6 +7,7 @@ from ranker import Ranker, BM25
 import pickle
 import os
 from document_preprocessor import RegexTokenizer
+from random_ranker import RandomRanker
 
 def map_score(search_result_relevances: list[int], cut_off=10) -> float:
     """
@@ -178,7 +179,7 @@ def reformat_relevance_data(df:DataFrame, save_path: str) -> None:
     df['rel'] = df['rel'].astype(int)
     df['docid'] = df['docid'].astype(int)
 
-    df.to_csv(save_path)
+    df.to_csv(save_path, index = False)
 
 
 def main():
@@ -196,10 +197,11 @@ def main():
     df = pd.read_csv("../eval/relevance_scores.csv")
     reformat_relevance_data(df, "../eval/reformated_relevance_scores.csv")
     queries_to_judgements = map_queries_to_judgements("../eval/formated_relevance_scores.csv")
-    bm25 = BM25(index)
     document_preprocessor = RegexTokenizer("\\w+")
-    ranker = Ranker(index, document_preprocessor, stopwords, bm25)
-    performance = run_relevance_tests(queries_to_judgements, "../eval/baseline_performance.csv", ranker)
+    # bm25 = BM25(index)
+    # ranker = Ranker(index, document_preprocessor, stopwords, bm25)
+    ranker = RandomRanker(index)
+    performance = run_relevance_tests(queries_to_judgements, "../eval/random_baseline_performance.csv", ranker)
 
 
 if __name__ == '__main__':
