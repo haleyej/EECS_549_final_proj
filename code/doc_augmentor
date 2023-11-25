@@ -1,10 +1,7 @@
-import os 
 from keybert import KeyBERT
 
-
 class DocumentAugmentor():
-    def __init__(self, doc_to_post:dict[int, str], stopwords: list[str] = None, ngram_range: tuple[int] = (1, 2)):
-        #https://huggingface.co/bloomberg/KeyBART?text=what+is+your+favorite+place+that+you%27ve+been+to%3F
+    def __init__(self, doc_to_post: dict[int, str], stopwords: list[str] = None, ngram_range: tuple[int] = (1, 2)):
         self.doc_to_post = doc_to_post
         self.model = KeyBERT()
         self.ngram_range = ngram_range
@@ -27,7 +24,10 @@ class DocumentAugmentor():
 
 
 
-def main():
+def test_code():
+    '''
+    helper function for me to test code!
+    '''
     doc_to_post = {1: "what is your favorite place you've travelled to?", 
                    2: "what is the biggest regret of your life?", 
                    3: "Have you ever had a paranormal experience? What happened?"}
@@ -35,6 +35,10 @@ def main():
     aug = DocumentAugmentor(doc_to_post)
     resp = aug.augment_docs([1, 2])
     print(resp)
+ 
+
+def main():
+    test_code()
 
 
 if __name__ == '__main__':
