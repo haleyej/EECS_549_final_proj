@@ -1,0 +1,45 @@
+from keybert import KeyBERT
+
+class DocumentAugmentor():
+    def __init__(self, doc_to_post: dict[int, str], stopwords: list[str] = None, ngram_range: tuple[int] = (1, 2)):
+        self.doc_to_post = doc_to_post
+        self.model = KeyBERT()
+        self.ngram_range = ngram_range
+        self.stopwords = stopwords
+
+    def augment_docs(self, docids: list[int]) -> dict[int, str]:
+        '''
+        takes in a list of docs for performance reasons
+        '''
+        posts = [self.doc_to_post[docid] for docid in docids]
+        posts_to_keywords = self.model.extract_keywords(posts, keyphrase_ngram_range = self.ngram_range, stop_words = self.stopwords)
+
+        augmented_text = {}
+        for i, keyword_list in enumerate(posts_to_keywords):
+            docid = docids[i]
+            post = posts[i]
+            keywords = [keyword for keyword, _ in keyword_list]
+            augmented_text[docid] = post + " " + " ".join(keywords) 
+        return augmented_text
+
+
+
+def test_code():
+    '''
+    helper function for me to test code!
+    '''
+    doc_to_post = {1: "what is your favorite place you've travelled to?", 
+                   2: "what is the biggest regret of your life?", 
+                   3: "Have you ever had a paranormal experience? What happened?"}
+    
+    aug = DocumentAugmentor(doc_to_post)
+    resp = aug.augment_docs([1, 2])
+    print(resp)
+ 
+
+def main():
+    test_code()
+
+
+if __name__ == '__main__':
+    main()
