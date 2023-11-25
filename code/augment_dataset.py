@@ -1,5 +1,6 @@
 from doc_augmentor import DocumentAugmentor
 import json 
+import os
 
 
 def read_dataset(path: str) -> dict[int, str]:
@@ -12,13 +13,13 @@ def read_dataset(path: str) -> dict[int, str]:
         while doc:
             doc = json.loads(doc)
             docid = doc['docid']
-            post = doc['post']
+            post = doc['text']
             docid_to_post[docid] = post
             doc = f.readline()
 
     return docid_to_post
 
-def augment_dataset(docs: dict[int, str], stopwords: list[str], save_path: str) -> None:
+def augment_dataset(docs: dict[int, str], save_path: str, stopwords:str='english') -> None:
     docids = list(docs.keys())
     augmentor = DocumentAugmentor(docs, stopwords)
 
@@ -30,13 +31,11 @@ def augment_dataset(docs: dict[int, str], stopwords: list[str], save_path: str) 
             json.dump(d, f)
 
 def main():
+    os.chdir("code")
     path = "../data/ask_reddit_posts_v2.jsonl"
     docid_to_post = read_dataset(path) 
-    
-    with open("../files/stopwords.txt") as f: 
-        stopwords = f.readlines()
 
-    augment_dataset(docid_to_post, stopwords, '..data/augmented_ask_reddit_post.jsonl')
+    augment_dataset(docid_to_post, '../data/augmented_ask_reddit_post.jsonl')
 
 
 if __name__ == '__main__':

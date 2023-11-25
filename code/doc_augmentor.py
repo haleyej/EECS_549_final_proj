@@ -1,7 +1,8 @@
 from keybert import KeyBERT
+from tqdm import tqdm
 
 class DocumentAugmentor():
-    def __init__(self, doc_to_post: dict[int, str], stopwords: list[str] = None, ngram_range: tuple[int] = (1, 2)):
+    def __init__(self, doc_to_post: dict[int, str], stopwords: str = 'english', ngram_range: tuple[int] = (1, 2)):
         self.doc_to_post = doc_to_post
         self.model = KeyBERT()
         self.ngram_range = ngram_range
@@ -12,10 +13,10 @@ class DocumentAugmentor():
         takes in a list of docs for performance reasons
         '''
         posts = [self.doc_to_post[docid] for docid in docids]
-        posts_to_keywords = self.model.extract_keywords(posts, keyphrase_ngram_range = self.ngram_range, stop_words = self.stopwords)
+        posts_to_keywords = self.model.extract_keywords(posts, keyphrase_ngram_range = self.ngram_range, stop_words = self.stopwords, use_mmr = True)
 
         augmented_text = {}
-        for i, keyword_list in enumerate(posts_to_keywords):
+        for i, keyword_list in tqdm(enumerate(posts_to_keywords)):
             docid = docids[i]
             post = posts[i]
             keywords = [keyword for keyword, _ in keyword_list]
