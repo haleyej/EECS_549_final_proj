@@ -2,6 +2,10 @@ from keybert import KeyBERT
 from tqdm import tqdm
 
 class DocumentAugmentor():
+    '''
+    generates keywords for a document
+    based on the original post 
+    '''
     def __init__(self, doc_to_post: dict[int, str], stopwords: str = 'english', ngram_range: tuple[int] = (1, 2)):
         self.doc_to_post = doc_to_post
         self.model = KeyBERT()

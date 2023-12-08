@@ -1,7 +1,7 @@
 
 from collections import Counter
-from indexing import InvertedIndex, Indexer, IndexType
-from document_preprocessor import RegexTokenizer
+from indexing import PositionalInvertedIndex
+from nltk.tokenize import TweetTokenizer
 from sentence_transformers import CrossEncoder
 import numpy as np 
 
@@ -20,7 +20,7 @@ class Ranker:
     '''
 
     # NOTE: (hw2) Note that `stopwords: set[str]` is a new parameter that you will need to use in your code.
-    def __init__(self, index: InvertedIndex, document_preprocessor, stopwords: set[str], scorer: 'RelevanceScorer') -> None:
+    def __init__(self, index, document_preprocessor, stopwords: set[str], scorer: 'RelevanceScorer') -> None:
         '''
         Initializes the state of the Ranker object 
         '''
@@ -71,44 +71,17 @@ class Ranker:
         
     
 class RelevanceScorer:
-    '''
-    This is the base interface for all the relevance scoring algorithm.
-    It will take a document and attempt to assign a score to it.
-    '''
-    def __init__(self, index: InvertedIndex, parameters) -> None:
+    def __init__(self, index, parameters) -> None:
         raise NotImplementedError
 
 
     def score(self, docid: int, doc_word_counts: dict[str, int], query_parts: list[str]) -> float:
-        '''
-        Returns a score for how relevance is the document for the provided query.
-
-        Args:
-            docid (int): The ID of the document in the collection
-            doc_word_counts: A dictionary containing all words in the document and their frequencies
-            query_parts: A list of all the words in the query
-
-        Returns:
-            float: a score for how relevant the document is. Higher scores are more relevant.
-        '''
         raise NotImplementedError
 
-
-class SampleScorer(RelevanceScorer):
-    def __init__(self, index: InvertedIndex, parameters) -> None:
-        self.index = index 
-        self.parameters = parameters 
-
-    def score(self, docid: int, doc_word_counts: dict[str, int], query_parts: list[str]) -> float:
-        '''
-        Scores all documents as 10
-        '''
-        # Print randomly ranked results
-        return 10
 
 
 class WordCountCosineSimilarity(RelevanceScorer):
-    def __init__(self, index: InvertedIndex, parameters = {}) -> None:
+    def __init__(self, index, parameters = {}) -> None:
         self.index = index
         self.parameters = parameters
 
@@ -127,41 +100,8 @@ class WordCountCosineSimilarity(RelevanceScorer):
             return None
         return score
 
-
-class DirichletLM(RelevanceScorer):
-    def __init__(self, index: InvertedIndex, parameters={'mu': 2000}) -> None:
-        self.index = index
-        self.parameters = parameters
-        self.num_tokens = index.get_statistics()['total_token_count']
-
-    def score(self, docid: int, doc_word_counts: dict[str, int], query_parts: list[str]):
-        doc_word_counts 
-        query_word_counts = Counter(query_parts)
-
-        d = self.index.get_doc_metadata(docid)['total_token_count']
-        q = len(query_parts)
-        mu = self.parameters['mu']
-
-        scores = []
-        mutual_terms = set(doc_word_counts.keys()) & set(query_word_counts.keys())
-        for k in mutual_terms:
-            query_count = query_word_counts[k]
-            doc_count = doc_word_counts[k]
-            prob = self.index.get_term_metadata(k)['count'] / self.num_tokens
-
-            score = query_count * np.log(1 + (doc_count / (mu * prob)))
-
-            scores.append(score)
-
-        length_norm_ish_term = np.log(mu / (d + mu))
-        score = np.sum(scores)
-        if score == 0:
-            return None
-        return score + (q * length_norm_ish_term)
-
-
 class BM25(RelevanceScorer):
-    def __init__(self, index: InvertedIndex, parameters={'b': 0.75, 'k1': 1.2, 'k3': 8}) -> None:
+    def __init__(self, index, parameters={'b': 0.75, 'k1': 1.2, 'k3': 8}) -> None:
         self.index = index
         self.b = parameters['b']
         self.k1 = parameters['k1']
@@ -206,7 +146,7 @@ class BM25(RelevanceScorer):
 
 
 class PivotedNormalization(RelevanceScorer):
-    def __init__(self, index: InvertedIndex, parameters={'b': 0.2}) -> None:
+    def __init__(self, index, parameters={'b': 0.2}) -> None:
         self.index = index
         self.b = parameters['b']
         self.N = index.get_statistics()['number_of_documents']
@@ -252,7 +192,7 @@ class PivotedNormalization(RelevanceScorer):
 
 
 class TF_IDF(RelevanceScorer):
-    def __init__(self, index: InvertedIndex, parameters={}) -> None:
+    def __init__(self, index, parameters={}) -> None:
         self.index = index
         self.parameters = parameters
         self.N = index.get_statistics()['number_of_documents']
@@ -318,86 +258,5 @@ class CrossEncoderScorer:
         #             Refer to IR_Encoder_Examples.ipynb in Demos folder on Canvas if needed
         score = self.encoder.predict((query, text))
         return score
-
-
-class YourRanker(RelevanceScorer):
-    def __init__(self, index, parameters: dict = {}) -> None:
-        '''
-        Custom ranking function, like TF-IDF, but whimsical
-
-        ARGS:
-            index:
-                inverted index with all the documents you are 
-                interested scorinig 
-            parameters:
-                optional, dictionary of parameters to use in 
-                ranking function
-        '''
-        self.index = index 
-        self.parameters = parameters 
-        self.N = index.get_statistics()['number_of_documents']
-        self.avg_d = index.get_statistics()['mean_document_length']
-
-    def score(self, docid: int, doc_word_counts: dict[str, int], query_parts: list[str]) -> dict[str, int]:
-        '''
-        Uses index to score a query against a particular document 
-
-        Returns a dictionary with the keys docid and score 
-
-        ARGS:
-            docid: 
-                document id of the doc we want to score
-            query_parts:
-                tokenized list of words in the query, with
-                stopwords removed and replaced with None
-
-        EXAMPLE INPUT:
-            docid = 1
-            query_parts = ['University', None, 'Michigan']
-
-        EXAMPLE OUTPUT:
-            {'docid': 1, 'score': 0.5}
-        '''
-        doc_freq_counts = Counter()
-        query_word_counts = Counter(query_parts)
-
-        for part in set(query_parts):
-            term_metadata = self.index.get_term_metadata(part)
-            if len(list(term_metadata.keys())) == 0:
-                continue 
-            doc_freq_counts[part] = term_metadata['n_docs']
-
-        d = self.index.get_doc_metadata(docid)['total_token_count']
-        scores = []
-        for k in doc_word_counts.keys():
-            doc_word_count = doc_word_counts[k]
-            doc_freq_count = doc_freq_counts[k]
-            query_word_count = query_word_counts[k]
-
-            tf_ish_term = np.log(np.log(doc_word_count + 1 / (d / self.avg_d)))
-            idf_ish_term = np.log((self.N + 1) / doc_freq_count)
-            qtf_ish_term = np.log(np.log(query_word_count + 1) + 1)
-
-            score = query_word_count * tf_ish_term * idf_ish_term * qtf_ish_term
-            scores.append(score)
-
-        if len(scores) == 0:
-            return None
-        score = np.sum(scores)
-        if score == 0:
-            return None
-        return score
-
-def main():
-    tokenizer = RegexTokenizer(r"\w+")
-
-    index = Indexer().create_index(IndexType('BasicInvertedIndex'), 'hw2/data.jsonl', document_preprocessor = tokenizer, stopwords=['the'], minimum_word_frequency = 0, )
-
-    ranker = Ranker(index, tokenizer, ['the'], BM25)
-    ranker.query("AI chatbots vehicles")
-
-
-if __name__ == '__main__': 
-    main()
 
 
