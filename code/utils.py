@@ -7,7 +7,7 @@ from collections import defaultdict
 
 def load_docs(path: str, docid_key:str = 'docid', text_key:str = 'text') -> list[tuple[int, str]]:
     '''
-    Reads in files in jsonl format
+    Reads in files in jsonl format, returns list of tuples containing the docid and text
     '''
     docs = []
     with open(path) as f: 
@@ -22,6 +22,10 @@ def load_docs(path: str, docid_key:str = 'docid', text_key:str = 'text') -> list
 
 
 def load_true_relevance(file: str) -> dict[int, list[tuple[int, float]]]:
+    '''
+    loads list of relevance queries, returns a dictionary that maps documents
+    to a tuple with the docid and their relevance score 
+    '''
     queries_to_judgements = defaultdict(list)
     with open(file) as f:
         reader = csv.reader(f)
