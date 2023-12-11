@@ -98,7 +98,8 @@ class XGBRankerFeatures():
 
 class XGBRankerWrapper():
     def __init__(self, feature_preparer, stopwords:list[str], 
-                 doc_preprocessor, objective:str = 'rank:ndcg', learning_rate:int = 0.1,
+                 doc_preprocessor, ranker, 
+                 objective:str = 'rank:ndcg', learning_rate:int = 0.1,
                  gamma:int = 0.5, max_depth:int = 10, n_estimators:int = 100, 
                  tree_method:str = 'hist', lambdarank_pair_method:str = 'topk', 
                  lambdarank_num_pair_per_sample: int = 8) -> None:
@@ -107,6 +108,7 @@ class XGBRankerWrapper():
         self.doc_preprocessor = doc_preprocessor
         self.feature_preparer = feature_preparer
         self.stopwords = stopwords
+        self.ranker = ranker
 
         # hyperparameters
         self.objective = objective
@@ -165,15 +167,21 @@ class XGBRankerWrapper():
         return {}
 
 
-    def query(self, X:list[str], query: str, cutoff: int = 100):
+    def query(self, query: str, cutoff: int = 100):
         query_word_parts = self.tokenize_query(query)
         base = self.ranker.query(query)
 
+        reranked_docs = []
         for docid, _ in base[:cutoff]:
-            features = self.feature_preparer.get_ranker_features(X, query_word_parts)
-            X_features = np.array(features)
+            features = np.array(self.feature_preparer.get_ranker_features([docid], query_word_parts)).reshape(1, -1)
+            prediction = self.model.predict(features)[0]
+            reranked_docs.append(docid, prediction)
 
-        return self.model.predict(X_features)
+
+        reranked_docs = sorted(reranked_docs, key = lambda s: s[1], reverse = True)
+        search_results = reranked_docs.extend(base[cutoff:])
+
+        return search_results
 
 
 def main():
