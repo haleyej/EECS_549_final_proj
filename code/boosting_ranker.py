@@ -70,9 +70,9 @@ class XGBRankerFeatures():
 
         return doc_word_counts
     
-    def get_ranker_features(self, X: list[int], query_word_parts: list[str]) -> list[list]:
+    def get_ranker_features(self, docids: list[int], query_word_parts: list[str]) -> list[list]:
         doc_features = []
-        for docid in X: 
+        for docid in docids: 
             post_doc_word_counts = self.get_doc_word_counts(self.post_index, docid)
             post_bm25 = self.get_bm25(docid, post_doc_word_counts, query_word_parts, index_type = 'post')
 
@@ -89,7 +89,7 @@ class XGBRankerFeatures():
             cross_encoder_score = self.get_cross_encoder_score(docid)
 
             feature_vec = [post_bm25, comment_bm25, post_karma, comment_karma, post_len, comment_len, sentiment, cross_encoder_score]
-            if len(X) == 1:
+            if len(docids) == 1:
                 return feature_vec
             doc_features.append(feature_vec)
         
@@ -136,20 +136,18 @@ class XGBRankerWrapper():
         X = []
         y = []
         for i, query in tqdm(enumerate(list(query_to_relevance.keys()))):
-            ratings = query_to_relevance[query]
             query_word_parts = self.tokenize_query(query)
+            ratings = query_to_relevance[query]
 
             for docid, rel in ratings: 
                 y.append(rel)
+                qids.append(i)
                 feature_vec = self.feature_preparer.get_ranker_features([docid], query_word_parts)
                 X.append(feature_vec)
-                qids.append(i)
 
         X = np.array(X)
         y = np.array(y)
         qids = np.array(qids)
-
-        print(X.shape, y.shape, qids.shape)
         ranker.fit(X, y, qid = qids)
 
         self.model = ranker
@@ -167,40 +165,16 @@ class XGBRankerWrapper():
         return {}
 
 
-    def query(self, query: str, cutoff: int = 100):
+    def query(self, query: str, cutoff: int = 30) -> list[tuple[int, float]]:
         query_word_parts = self.tokenize_query(query)
         base = self.ranker.query(query)
 
         reranked_docs = []
-        for docid, _ in base[:cutoff]:
+        for docid, _ in tqdm(base[:cutoff]):
             features = np.array(self.feature_preparer.get_ranker_features([docid], query_word_parts)).reshape(1, -1)
             prediction = self.model.predict(features)[0]
-            reranked_docs.append(docid, prediction)
-
+            reranked_docs.append((docid, prediction))
 
         reranked_docs = sorted(reranked_docs, key = lambda s: s[1], reverse = True)
-        search_results = reranked_docs.extend(base[cutoff:])
-
-        return search_results
-
-
-def main():
-    from sklearn.datasets import make_classification
-    seed = 1994
-    X, y = make_classification(random_state=seed)
-    rng = np.random.default_rng(seed)
-    n_query_groups = 3
-    qid = rng.integers(0, 3, size=X.shape[0])
-
-    # Sort the inputs based on query index
-    sorted_idx = np.argsort(qid)
-    X = X[sorted_idx, :]
-    y = y[sorted_idx]
-    qid = qid[sorted_idx]
-
-    ranker = xgb.XGBRanker(tree_method="hist", lambdarank_num_pair_per_sample=8, objective="rank:ndcg", lambdarank_pair_method="topk")
-    ranker.fit(X, y, qid=qid)
-
-
-if __name__ == "__main__":
-    main()
+        reranked_docs.extend(base[cutoff:])
+        return reranked_docs
