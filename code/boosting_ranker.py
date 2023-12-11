@@ -1,60 +1,126 @@
 import xgboost as xgb
 import numpy as np 
-from ranker import Ranker
+from tqdm import tqdm 
+from ranker import Ranker, BM25
 from sklearn.model_selection import GroupKFold
 from skopt import BayesSearchCV
 from relevance import map_score, ndcg_score
 
-from nltk import TwitterTokenizer
 
 
-class XGBRankerWrapper():
+class XGBRankerFeatures():
     '''
     handy little wrapper class for xgboost
     so we can do cross val easily 
     '''
-    def __init__(self, karma_features: dict[int, tuple[int]], 
+    def __init__(self, post_index, 
+                 comment_index, 
                  bm25_params: dict[str, dict[str, int]],
-                 BM25, 
-                 doc_preprocessor, 
-                 objective:str = 'rank: ndcg', learning_rate:int = 0.1,
+                 cross_encoder_scores: dict[int, float],
+                 karma_scores: dict[int, tuple[int]],
+                 sentiment_scores: dict[int, float])  -> None:
+
+        # features
+        self.karma_scores = karma_scores
+        self.cross_encoder_score = cross_encoder_scores
+        self.sentiment_scores = sentiment_scores
+        
+        #BM25
+        post_parmas = bm25_params.get('post')
+        comment_params = bm25_params.get('comment')
+        self.post_BM25 = BM25(post_index, post_parmas)
+        self.comment_BM25 = BM25(comment_index, comment_params)
+
+        #index
+        self.post_index = post_index
+        self.comment_index = comment_index
+
+
+    def get_karma_score(self, docid) -> tuple[int]:
+        return self.karma_scores.get(docid, (0, 0))
+    
+
+    def get_sentiment_score(self, docid) -> float:
+        return self.sentiment_scores.get(docid, 0)
+
+
+    def get_bm25(self, docid:int, doc_word_counts: dict[str, int], query_word_parts: list[str], index_type: str = 'post'):
+        if index_type == 'post':
+            score = self.post_BM25.score(docid, doc_word_counts, query_word_parts)
+        elif index_type == 'comment':
+            score = self.comment_BM25.score(docid, doc_word_counts, query_word_parts)
+        return score
+    
+
+    def get_cross_encoder_score(self, docid: str):
+        return self.cross_encoder_score.get(docid, 0)
+
+
+    @staticmethod
+    def get_doc_word_counts(index, docid: str) -> dict[str, int]:
+        doc_word_counts = {}
+        words = list(index.term_metadata.keys())
+        for word in words:
+            postings = index.get_postings(word)
+            for posting in postings:
+                posting_docid = posting[0]
+                if posting_docid == docid:
+                    count = posting[1]
+                    doc_word_counts[word] = count
+
+        return doc_word_counts
+    
+    def get_ranker_features(self, X: list[int], query_word_parts: list[str]) -> list[list]:
+        doc_features = []
+        for docid in X: 
+            post_doc_word_counts = self.get_doc_word_counts(self.post_index, docid)
+            post_bm25 = self.get_bm25(docid, post_doc_word_counts, query_word_parts, index_type = 'post')
+
+            comment_doc_word_counts = self.get_doc_word_counts(self.comment_index, docid)
+            comment_bm25 = self.get_bm25(docid, comment_doc_word_counts, query_word_parts, index_type = 'comment')
+
+            post_karma, comment_karma = self.get_karma_score(docid)
+
+            post_len = len(list(post_doc_word_counts.keys()))
+            comment_len = len(list(comment_doc_word_counts.keys()))
+
+            sentiment = self.get_sentiment_score(docid)
+
+            cross_encoder_score = self.get_cross_encoder_score(docid)
+
+            feature_vec = [post_bm25, comment_bm25, post_karma, comment_karma, post_len, comment_len, sentiment, cross_encoder_score]
+            doc_features.append(feature_vec)
+        
+        return doc_features
+
+
+
+
+class XGBRankerWrapper():
+    def __init__(self, feature_preparer, stopwords:list[str], 
+                 doc_preprocessor, objective:str = 'rank: ndcg', learning_rate:int = 0.1,
                  gamma:int = 0.5, max_depth:int = 10, n_estimators:int = 100, 
                  tree_method:str = 'hist', lambdarank_pair_method:str = 'topk', 
-                 lambdarank_num_pair_per_sample: int = 8)  -> None:
+                 lambdarank_num_pair_per_sample: int = 8) -> None:
+        
+        # ir infastructure
+        self.doc_preprocessor = doc_preprocessor
+        self.feature_preparer = feature_preparer
+        self.stopwords = stopwords
+
+        # hyperparameters
         self.objective = objective
-        self.learning_rate = learning_rate
-        self.gamma = gamma
-        self.max_depth = max_depth
-        self.n_estimators = n_estimators 
+        self.learning_rate = learning_rate 
+        self.gamma = gamma 
+        self.max_depth = max_depth 
+        self.n_estimators = n_estimators
         self.tree_method = tree_method
         self.lambdarank_pair_method = lambdarank_pair_method
         self.lambdarank_num_pair_per_sample = lambdarank_num_pair_per_sample
 
-        self.karma_features = karma_features
-        self.bm25_params = bm25_params
-        self.BM25 = BM25
-        self.tokenizer = doc_preprocessor
 
 
-    def get_karma_features(self, docid) -> tuple[int]:
-        post_karma, comment_karma = self.karma_features.get(docid, (0, 0))
-        return (post_karma, comment_karma)
-
-
-    def get_tuned_bm25(self, query_parts: str, index_type: str):
-        params = self.bm25_params.get(index_type)
-
-        b = params.get('b', 0)
-        k1 = params.get('k1', 0)
-        k3 = params.get('k3', 0)
-
-        return (b, k1, k3)
-    
-    def get_ranker_features(X, y):
-        pass 
-
-
-    def fit(self, X, y, qid:list[int]) -> None:
+    def fit(self, query_to_relevance: dict) -> None:
         ranker = xgb.XGBRanker(tree_method = self.tree_method,
                                lambdarank_num_pair_per_sample = self.lambdarank_num_pair_per_sample, 
                                lambdarank_pair_method = self.lambdarank_pair_method,
@@ -62,25 +128,44 @@ class XGBRankerWrapper():
                                learning_rate = self.learning_rate, 
                                gamma = self.gamma, 
                                max_depth = self.max_depth)
-        
-        ranker.fit(X, y, qid=qid)
+    
+
+        qids = []
+        X = []
+        y = []
+        for i, query in tqdm(enumerate(list(query_to_relevance.keys()))):
+            ratings = query_to_relevance[query]
+            query_word_parts = self.tokenize_query(query)
+
+            for docid, rel in ratings: 
+                y.append(rel)
+                feature_vec = np.array(self.feature_preparer.get_ranker_features([docid], query_word_parts))
+                X.append(feature_vec)
+                qids.append(i)
+
+        ranker.fit(X, y, qid = qids)
 
         self.model = ranker
-        return self
     
-    def prepare_data(self, docs):
-        for docid in docs: 
-            post_karma, comment_karma = self.get_karma_features(docid)
-            bm25 = self.get_
+
+    def tokenize_query(self, query: str) -> list[str]:
+        query = query.lower()
+        parts =  self.doc_preprocessor.tokenize(query)
+        return [part for part in parts if part not in self.stopwords]
 
 
-    def get_params(self, deep) -> dict:
+    def get_params(self) -> dict:
         if hasattr(self, 'model'):
             return self.model.get_params
         return {}
 
-    def predict(self, x):
-        return self.model.predict(x)
+
+    def predict(self, X:list[str], query: str):
+        query_word_parts = self.tokenize_query(query)
+        features = self.feature_preparer.get_ranker_features(X, query_word_parts)
+        X_features = np.array(features)
+
+        return self.model.predict(X_features)
 
 
 def main():
