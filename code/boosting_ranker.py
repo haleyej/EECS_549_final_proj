@@ -89,16 +89,18 @@ class XGBRankerFeatures():
             cross_encoder_score = self.get_cross_encoder_score(docid)
 
             feature_vec = [post_bm25, comment_bm25, post_karma, comment_karma, post_len, comment_len, sentiment, cross_encoder_score]
+            if len(X) == 1:
+                return feature_vec
             doc_features.append(feature_vec)
         
-        return np.array(doc_features)
+        return doc_features
 
 
 
 
 class XGBRankerWrapper():
     def __init__(self, feature_preparer, stopwords:list[str], 
-                 doc_preprocessor, objective:str = 'rank: ndcg', learning_rate:int = 0.1,
+                 doc_preprocessor, objective:str = 'rank:ndcg', learning_rate:int = 0.1,
                  gamma:int = 0.5, max_depth:int = 10, n_estimators:int = 100, 
                  tree_method:str = 'hist', lambdarank_pair_method:str = 'topk', 
                  lambdarank_num_pair_per_sample: int = 8) -> None:
@@ -148,7 +150,6 @@ class XGBRankerWrapper():
         qids = np.array(qids)
 
         print(X.shape, y.shape, qids.shape)
-        #return X, y, qids
         ranker.fit(X, y, qid = qids)
 
         self.model = ranker
