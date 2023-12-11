@@ -96,8 +96,6 @@ class XGBRankerFeatures():
         return doc_features
 
 
-
-
 class XGBRankerWrapper():
     def __init__(self, feature_preparer, stopwords:list[str], 
                  doc_preprocessor, objective:str = 'rank:ndcg', learning_rate:int = 0.1,
@@ -167,7 +165,7 @@ class XGBRankerWrapper():
         return {}
 
 
-    def query(self, X:list[str], query: str, cutoff: int):
+    def query(self, X:list[str], query: str, cutoff: int = 100):
         query_word_parts = self.tokenize_query(query)
         base = self.ranker.query(query)
 
