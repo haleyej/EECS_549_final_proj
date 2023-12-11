@@ -91,7 +91,7 @@ class XGBRankerFeatures():
             feature_vec = [post_bm25, comment_bm25, post_karma, comment_karma, post_len, comment_len, sentiment, cross_encoder_score]
             doc_features.append(feature_vec)
         
-        return doc_features
+        return np.array(doc_features)
 
 
 
@@ -139,10 +139,16 @@ class XGBRankerWrapper():
 
             for docid, rel in ratings: 
                 y.append(rel)
-                feature_vec = np.array(self.feature_preparer.get_ranker_features([docid], query_word_parts))
+                feature_vec = self.feature_preparer.get_ranker_features([docid], query_word_parts)
                 X.append(feature_vec)
                 qids.append(i)
 
+        X = np.array(X)
+        y = np.array(y)
+        qids = np.array(qids)
+
+        print(X.shape, y.shape, qids.shape)
+        #return X, y, qids
         ranker.fit(X, y, qid = qids)
 
         self.model = ranker
@@ -160,10 +166,13 @@ class XGBRankerWrapper():
         return {}
 
 
-    def predict(self, X:list[str], query: str):
+    def query(self, X:list[str], query: str, cutoff: int):
         query_word_parts = self.tokenize_query(query)
-        features = self.feature_preparer.get_ranker_features(X, query_word_parts)
-        X_features = np.array(features)
+        base = self.ranker.query(query)
+
+        for docid, _ in base[:cutoff]:
+            features = self.feature_preparer.get_ranker_features(X, query_word_parts)
+            X_features = np.array(features)
 
         return self.model.predict(X_features)
 
