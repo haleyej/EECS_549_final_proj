@@ -1,9 +1,8 @@
 import xgboost as xgb
 import numpy as np 
+
 from tqdm import tqdm 
-from ranker import Ranker, BM25
-from sklearn.model_selection import GroupKFold
-from skopt import BayesSearchCV
+from ranker import BM25
 from relevance import map_score, ndcg_score
 
 
@@ -20,7 +19,7 @@ class XGBRankerFeatures():
                  karma_scores: dict[int, tuple[int]],
                  sentiment_scores: dict[int, float])  -> None:
 
-        # features
+        #features
         self.karma_scores = karma_scores
         self.cross_encoder_score = cross_encoder_scores
         self.sentiment_scores = sentiment_scores
@@ -34,6 +33,7 @@ class XGBRankerFeatures():
         #index
         self.post_index = post_index
         self.comment_index = comment_index
+
 
 
     def get_karma_score(self, docid) -> tuple[int]:
@@ -52,7 +52,7 @@ class XGBRankerFeatures():
         return score
     
 
-    def get_cross_encoder_score(self, docid: str):
+    def get_qa_cross_encoder_score(self, docid: str):
         return self.cross_encoder_score.get(docid, 0)
 
 
@@ -86,7 +86,7 @@ class XGBRankerFeatures():
 
             sentiment = self.get_sentiment_score(docid)
 
-            cross_encoder_score = self.get_cross_encoder_score(docid)
+            cross_encoder_score = self.get_qa_cross_encoder_score(docid)
 
             feature_vec = [post_bm25, comment_bm25, post_karma, comment_karma, post_len, comment_len, sentiment, cross_encoder_score]
             if len(docids) == 1:
@@ -101,7 +101,7 @@ class XGBRankerWrapper():
                  doc_preprocessor, ranker, 
                  objective:str = 'rank:ndcg', learning_rate:int = 0.1,
                  gamma:int = 0.5, max_depth:int = 10, n_estimators:int = 100, 
-                 tree_method:str = 'hist', lambdarank_pair_method:str = 'topk', 
+                 tree_method:str = 'hist', lambdarank_pair_method:str = 'mean', 
                  lambdarank_num_pair_per_sample: int = 8) -> None:
         
         # ir infastructure
@@ -165,7 +165,7 @@ class XGBRankerWrapper():
         return {}
 
 
-    def query(self, query: str, cutoff: int = 30) -> list[tuple[int, float]]:
+    def query(self, query: str, cutoff: int = 50) -> list[tuple[int, float]]:
         query_word_parts = self.tokenize_query(query)
         base = self.ranker.query(query)
 
