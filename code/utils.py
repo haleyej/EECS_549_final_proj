@@ -5,7 +5,7 @@ import json
 from collections import defaultdict
 
 
-def load_docs(path: str, docid_key:str = 'docid', text_key:str = 'text') -> list[tuple[int, str]]:
+def load_docs(path: str, docid_key:str = 'docid', text_key:str = 'full_text') -> list[tuple[int, str]]:
     '''
     Reads in files in jsonl format, returns list of tuples containing the docid and text
     '''
@@ -32,7 +32,7 @@ def load_true_relevance(file: str) -> dict[int, list[tuple[int, float]]]:
         doc = next(reader)
         for doc in reader: 
             docid = int(doc[2])
-            relevance = int(doc[-1])
+            relevance = int(doc[1])
             query = doc[0]
             queries_to_judgements[query].append((docid, relevance))
 
