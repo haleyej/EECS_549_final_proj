@@ -15,12 +15,13 @@ def app():
     with open("../system_components/l2r", "rb") as f: 
         l2r = pickle.load(f)
 
-    with open("../system_components/bm25", "wb") as f:
-        bm25 = pickle.load(f)
+    # with open("../system_components/bm25", "b") as f:
+    #     bm25 = pickle.load(f)
 
     info_dict = load_front_end_data()
     
     st.title("Search r/askreddit")
+    st.header(f"Note that some posts have been deleted and that the system may take a moment to retrieve documents")
 
     query = st.text_input("Search: ",  key = "query")
 
@@ -33,10 +34,11 @@ def app():
     )
 
     if st.button("SEARCH"):
+        print("QUERYING!")
         if search_type == "Learning to Rank":
             output_data = l2r.query(query)
-        elif search_type == "BM25 (Baseline)":
-            output_data = bm25.query(query)
+        # elif search_type == "BM25 (Baseline)":
+        #     output_data = bm25.query(query)
         else:
             output_data = []
         show_results(output_data, info_dict)
@@ -49,8 +51,6 @@ def app():
 def show_results(results, info_dict):
     aa = 0
     st.info(f"Showing results for: {len(results)}")
-
-    st.info(f"Note that some posts have been deleted")
 
     N_cards_per_row = 3
     for n_row, (docid, score) in enumerate(results):
