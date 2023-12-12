@@ -159,7 +159,7 @@ class Indexer:
                 if metadata[term]['count'] < minimum_word_frequency:
                     postings = index.get_postings(term)
                     for posting in postings:
-                        docid, _ = posting
+                        docid = posting[0]
                         index.document_metadata[docid]['num_unique_tokens'] = index.document_metadata[docid]['num_unique_tokens'] - 1
                     index.vocabulary.remove(term)
                     del index.index[term]

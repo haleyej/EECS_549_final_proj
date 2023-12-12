@@ -65,7 +65,7 @@ def map_queries_to_judgements(relevance_data_filename:str) -> dict[str, list[tup
 def run_relevance_tests(queries_to_judgements: dict, outfile:str, ranker, cutoff:int = 10) -> dict[str, float]:
     maps = []
     ncdgs = []
-    for query, relevance_ratings in tqdm(list(queries_to_judgements.items())):
+    for query, relevance_ratings in list(queries_to_judgements.items()):
         search_results = ranker.query(query)
         map_relevance_scores = []
         ndcg_relevance_scores = []
@@ -76,12 +76,12 @@ def run_relevance_tests(queries_to_judgements: dict, outfile:str, ranker, cutoff
             continue
         for result in search_results[:cutoff]:
             if len(result) == 0:
-                maps.append(0)
-                ncdgs.append(0)
+                map_relevance_scores.append(0)
+                ndcg_relevance_scores.append(0)
                 continue
             result_docid = result[0]
             found = False
-            for tup in tqdm(relevance_ratings):
+            for tup in relevance_ratings:
                 docid, rel  = tup
                 if int(docid) == int(result_docid):
                     found = True

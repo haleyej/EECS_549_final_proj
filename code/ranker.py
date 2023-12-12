@@ -58,7 +58,7 @@ class Ranker:
             postings = self.index.get_postings(part)
             if postings == None:
                 continue
-            for docid, count in postings: 
+            for docid, count, _ in postings: 
                 doc_count[part] = count
                 candidate_docs[docid] = candidate_docs.get(docid, {}) | doc_count
 
@@ -123,7 +123,7 @@ class BM25(RelevanceScorer):
         if len(doc_metadata) == 0:
             d = 0
         else:
-            d = self.index.get_doc_metadata(docid)['total_token_count']
+            d = self.index.get_doc_metadata(docid)['num_tokens']
         # get parameters
         b = self.b
         k1 = self.k1
